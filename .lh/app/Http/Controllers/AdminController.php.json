@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/Http/Controllers/AdminController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1750100278698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750100287003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,7 +7,7 @@\n class AdminController extends Controller\n {\n     public function index()\n     {\n-        ret\n+        return view('admin.index');\n     }\n }\n"
+                },
+                {
+                    "date": 1750100293614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n use Illuminate\\Http\\Request;\n \n class AdminController extends Controller\n {\n-    public function index()\n+    public function login()\n     {\n         return view('admin.login');\n     }\n }\n"
+                }
+            ],
+            "date": 1750100278698,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse Illuminate\\Http\\Request;\n\nclass AdminController extends Controller\n{\n    public function index()\n    {\n        \n    }\n}\n"
+        }
+    ]
+}

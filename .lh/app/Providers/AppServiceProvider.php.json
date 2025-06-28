@@ -1,0 +1,30 @@
+{
+    "sourceFile": "app/Providers/AppServiceProvider.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1750188579336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750188585966,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,7 @@\n      * Bootstrap any application services.\n      */\n     public function boot(): void\n     {\n-        Schema::defaultStringLength(191);\n+       // Schema::defaultStringLength(191);\n     }\n }\n"
+                },
+                {
+                    "date": 1750188591988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,8 @@\n      * Bootstrap any application services.\n      */\n     public function boot(): void\n     {\n-        \n+        Sch\n        // Schema::defaultStringLength(191);\n     }\n }\n"
+                },
+                {
+                    "date": 1750188598418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n <?php\n \n namespace App\\Providers;\n \n+use Illuminate\\Support\\Facades\\Schema;\n use Illuminate\\Support\\ServiceProvider;\n \n class AppServiceProvider extends ServiceProvider\n {\n@@ -18,8 +19,8 @@\n      * Bootstrap any application services.\n      */\n     public function boot(): void\n     {\n-        Sch\n+        Schema\n        // Schema::defaultStringLength(191);\n     }\n }\n"
+                }
+            ],
+            "date": 1750188579336,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Providers;\n\nuse Illuminate\\Support\\ServiceProvider;\n\nclass AppServiceProvider extends ServiceProvider\n{\n    /**\n     * Register any application services.\n     */\n    public function register(): void\n    {\n        //\n    }\n\n    /**\n     * Bootstrap any application services.\n     */\n    public function boot(): void\n    {\n        Schema::defaultStringLength(191);\n    }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "sourceFile": "app/Http/Middleware/AdminRedirect.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1750191109663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750191115790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,8 @@\n      * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n-        \n+        if(Auth::guard('admin')->check())\n         return $next($request);\n     }\n }\n"
+                },
+                {
+                    "date": 1750191127890,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,8 @@\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n         if(Auth::guard('admin')->check())\n+        \n         return $next($request);\n     }\n }\n"
+                },
+                {
+                    "date": 1750191135631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n      * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n-        \n+        Auth\n         if(Auth::guard('admin')->check())\n \n         return $next($request);\n     }\n"
+                },
+                {
+                    "date": 1750191151104,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,12 @@\n      * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n-        \n+\n         if(Auth::guard('admin')->check())\n-\n+{\n+    \n+}\n         return $next($request);\n     }\n }\n"
+                }
+            ],
+            "date": 1750191109663,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Middleware;\n\nuse Closure;\nuse Illuminate\\Http\\Request;\nuse Symfony\\Component\\HttpFoundation\\Response;\n\nclass AdminRedirect\n{\n    /**\n     * Handle an incoming request.\n     *\n     * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n     */\n    public function handle(Request $request, Closure $next): Response\n    {\n        \n        return $next($request);\n    }\n}\n"
+        }
+    ]
+}

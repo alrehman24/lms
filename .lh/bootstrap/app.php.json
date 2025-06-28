@@ -1,0 +1,34 @@
+{
+    "sourceFile": "bootstrap/app.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1750191316345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750191344879,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         commands: __DIR__.'/../routes/console.php',\n         health: '/up',\n     )\n     ->withMiddleware(function (Middleware $middleware) {\n-        \n+        $middleware->al\n     })\n     ->withExceptions(function (Exceptions $exceptions) {\n         //\n     })->create();\n"
+                },
+                {
+                    "date": 1750191350291,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n         commands: __DIR__.'/../routes/console.php',\n         health: '/up',\n     )\n     ->withMiddleware(function (Middleware $middleware) {\n-        $middleware->al\n+        $middleware->alias\n     })\n     ->withExceptions(function (Exceptions $exceptions) {\n         //\n     })->create();\n"
+                },
+                {
+                    "date": 1750191356090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n         commands: __DIR__.'/../routes/console.php',\n         health: '/up',\n     )\n     ->withMiddleware(function (Middleware $middleware) {\n-        $middleware->alias();\n+        $middleware->alias([\n+            \n+        ]);\n     })\n     ->withExceptions(function (Exceptions $exceptions) {\n         //\n     })->create();\n"
+                },
+                {
+                    "date": 1750191370063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n         health: '/up',\n     )\n     ->withMiddleware(function (Middleware $middleware) {\n         $middleware->alias([\n-            'admin.guest'=\n+            'admin.guest'=>\n         ]);\n     })\n     ->withExceptions(function (Exceptions $exceptions) {\n         //\n"
+                }
+            ],
+            "date": 1750191316345,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Foundation\\Application;\nuse Illuminate\\Foundation\\Configuration\\Exceptions;\nuse Illuminate\\Foundation\\Configuration\\Middleware;\n\nreturn Application::configure(basePath: dirname(__DIR__))\n    ->withRouting(\n        web: __DIR__.'/../routes/web.php',\n        commands: __DIR__.'/../routes/console.php',\n        health: '/up',\n    )\n    ->withMiddleware(function (Middleware $middleware) {\n        \n    })\n    ->withExceptions(function (Exceptions $exceptions) {\n        //\n    })->create();\n"
+        }
+    ]
+}

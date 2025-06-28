@@ -1,0 +1,30 @@
+{
+    "sourceFile": "app/Models/FeeHead.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1750500580849,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750500591928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,6 +19,7 @@\n         'march',\n         'april',\n         'may',\n         'june',\n+\n     ];\n }\n"
+                },
+                {
+                    "date": 1750500913972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n \n class FeeHead extends Model\n {\n     protected $fillable = [\n-        'name',\n+        'naclass_idme',\n         'july',\n         'august',\n         'september',\n         'october',\n"
+                },
+                {
+                    "date": 1750500924735,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,11 @@\n \n class FeeHead extends Model\n {\n     protected $fillable = [\n-        'naclass_idme',\n+        'class_id',\n+        'academic_year_id',\n+        'fee_head_id',\n         'july',\n         'august',\n         'september',\n         'october',\n"
+                }
+            ],
+            "date": 1750500580849,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass FeeHead extends Model\n{\n    protected $fillable = [\n        'name',\n        'july',\n        'august',\n        'september',\n        'october',\n        'november',\n        'december',\n        'january',\n        'february',\n        'march',\n        'april',\n        'may',\n        'june',\n    ];\n}\n"
+        }
+    ]
+}

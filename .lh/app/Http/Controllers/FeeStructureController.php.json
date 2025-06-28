@@ -1,0 +1,70 @@
+{
+    "sourceFile": "app/Http/Controllers/FeeStructureController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1750500061360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750500072618,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n      * Show the form for creating a new resource.\n      */\n     public function create()\n     {\n-        \n+        return view('fee-structure.create',$data);\n     }\n \n     /**\n      * Store a newly created resource in storage.\n"
+                },
+                {
+                    "date": 1750500079057,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,9 @@\n      * Show the form for creating a new resource.\n      */\n     public function create()\n     {\n+        \n         return view('fee-structure.create',$data);\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1750500085500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n      * Show the form for creating a new resource.\n      */\n     public function create()\n     {\n-        \n-        return view('fee-structure.create',$data);\n+        $feeHeads=FeeHead::all();\n+        return view('fee-structure.create',compact('feeHeads'));\n     }\n \n     /**\n      * Store a newly created resource in storage.\n"
+                },
+                {
+                    "date": 1750500092865,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n      * Show the form for creating a new resource.\n      */\n     public function create()\n     {\n-        $feeHeads=FeeHead::all();\n+        $datafeeHeads=FeeHead::all();\n         return view('fee-structure.create',compact('feeHeads'));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1750500126709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,11 @@\n      * Show the form for creating a new resource.\n      */\n     public function create()\n     {\n-        $datafeeHeads=FeeHead::all();\n+        $data['feeHeads']=FeeHead::all();\n+        $data['academicYears']=AcademicYear::all();\n+        $data['classes']=Classes::all();\n         return view('fee-structure.create',compact('feeHeads'));\n     }\n \n     /**\n"
+                },
+                {
+                    "date": 1750500143801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     {\n         $data['feeHeads']=FeeHead::all();\n         $data['academicYears']=AcademicYear::all();\n         $data['classes']=Classes::all();\n-        return view('fee-structure.create',compact('feeHeads'));\n+        return view('fee-structure.create',compact('data'));\n     }\n \n     /**\n      * Store a newly created resource in storage.\n"
+                },
+                {
+                    "date": 1750500151744,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,13 @@\n namespace App\\Http\\Controllers;\n \n use App\\Models\\FeeStructure;\n use Illuminate\\Http\\Request;\n+use App\\Models\\FeeHead;\n+use App\\Models\\AcademicYear;\n+use App\\Models\\Classes;\n \n+\n class FeeStructureController extends Controller\n {\n     /**\n      * Display a listing of the resource.\n"
+                },
+                {
+                    "date": 1750500800786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n      * Store a newly created resource in storage.\n      */\n     public function store(Request $request)\n     {\n-        //\n+        \n     }\n \n     /**\n      * Display the specified resource.\n"
+                },
+                {
+                    "date": 1750500807302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,19 @@\n      * Store a newly created resource in storage.\n      */\n     public function store(Request $request)\n     {\n-        \n+        $request->validate([\n+            'class_id'=>'required',\n+            'academic_year_id'=>'required',\n+            'fee_heads'=>'required',\n+        ]);\n+        $feeStructure=new FeeStructure();\n+        $feeStructure->class_id=$request->class_id;\n+        $feeStructure->academic_year_id=$request->academic_year_id;\n+        $feeStructure->fee_heads=json_encode($request->fee_heads);\n+        $feeStructure->save();\n+        return redirect()->route('fee-structure.index')->with('success','Fee Structure Created Successfully');\n     }\n \n     /**\n      * Display the specified resource.\n"
+                },
+                {
+                    "date": 1750500835360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n         ]);\n         $feeStructure=new FeeStructure();\n         $feeStructure->class_id=$request->class_id;\n         $feeStructure->academic_year_id=$request->academic_year_id;\n-        $feeStructure->fee_heads=json_encode($request->fee_heads);\n+        $feeStructure->fee_heads=$request->fee_heads);\n         $feeStructure->save();\n         return redirect()->route('fee-structure.index')->with('success','Fee Structure Created Successfully');\n     }\n \n"
+                },
+                {
+                    "date": 1750500845884,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n         ]);\n         $feeStructure=new FeeStructure();\n         $feeStructure->class_id=$request->class_id;\n         $feeStructure->academic_year_id=$request->academic_year_id;\n-        $feeStructure->fee_heads=$request->fee_heads);\n+        $feeStructure->fee_heads_id=$request->fee_heads_id;\n         $feeStructure->save();\n         return redirect()->route('fee-structure.index')->with('success','Fee Structure Created Successfully');\n     }\n \n"
+                },
+                {
+                    "date": 1750500938127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,9 @@\n         $feeStructure=new FeeStructure();\n         $feeStructure->class_id=$request->class_id;\n         $feeStructure->academic_year_id=$request->academic_year_id;\n         $feeStructure->fee_heads_id=$request->fee_heads_id;\n+        $\n \n         $feeStructure->save();\n         return redirect()->route('fee-structure.index')->with('success','Fee Structure Created Successfully');\n     }\n"
+                },
+                {
+                    "date": 1750501012120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,12 @@\n      * Display the specified resource.\n      */\n     public function show(FeeStructure $feeStructure)\n     {\n-        //\n+        $data['feeHeads']=FeeHead::all();\n+        $data['academicYears']=AcademicYear::all();\n+        $data['classes']=Classes::all();\n+        return view('fee-structure.show',compact('feeStructure','data'));\n     }\n \n     /**\n      * Show the form for editing the specified resource.\n"
+                }
+            ],
+            "date": 1750500061360,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse App\\Models\\FeeStructure;\nuse Illuminate\\Http\\Request;\n\nclass FeeStructureController extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     */\n    public function index()\n    {\n        $feeStructures=FeeStructure::all();\n        return view('fee-structure.index',compact('feeStructures'));\n    }\n\n    /**\n     * Show the form for creating a new resource.\n     */\n    public function create()\n    {\n        \n    }\n\n    /**\n     * Store a newly created resource in storage.\n     */\n    public function store(Request $request)\n    {\n        //\n    }\n\n    /**\n     * Display the specified resource.\n     */\n    public function show(FeeStructure $feeStructure)\n    {\n        //\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     */\n    public function edit(FeeStructure $feeStructure)\n    {\n        //\n    }\n\n    /**\n     * Update the specified resource in storage.\n     */\n    public function update(Request $request, FeeStructure $feeStructure)\n    {\n        //\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     */\n    public function destroy(FeeStructure $feeStructure)\n    {\n        //\n    }\n}\n"
+        }
+    ]
+}

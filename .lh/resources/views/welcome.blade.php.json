@@ -1,0 +1,22 @@
+{
+    "sourceFile": "resources/views/welcome.blade.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1750613267372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750817133541,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n <!DOCTYPE html>\n <html>\n+\n <head>\n     @vite(['resources/css/app.css', 'resources/js/app.js'])\n </head>\n+\n <body>\n     <div id=\"app\"></div>\n </body>\n </html>\n"
+                }
+            ],
+            "date": 1750613267372,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\n<html>\n<head>\n    @vite(['resources/css/app.css', 'resources/js/app.js'])\n</head>\n<body>\n    <div id=\"app\"></div>\n</body>\n</html>\n"
+        }
+    ]
+}

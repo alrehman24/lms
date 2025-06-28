@@ -1,0 +1,18 @@
+{
+    "sourceFile": "resources/js/router/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1750612884748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1750612884748,
+            "name": "Commit-0",
+            "content": "import { createRouter, createWebHistory } from 'vue-router';\r\nimport Home from '../components/Home.vue';\r\nimport About from '../components/About.vue';\r\n\r\nconst routes = [\r\n    { path: '/', name: 'home', component: Home },\r\n    { path: '/about', name: 'about', component: About },\r\n];\r\n\r\nconst router = createRouter({\r\n    history: createWebHistory(),\r\n    routes,\r\n});\r\n\r\nexport default router;\r\n"
+        }
+    ]
+}

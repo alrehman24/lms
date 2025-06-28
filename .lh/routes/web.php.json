@@ -1,0 +1,38 @@
+{
+    "sourceFile": "routes/web.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1750100347422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750100359528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,5 @@\n \n Route::get('/', function () {\n     return view('welcome');\n });\n-Rou\n+Route::get('')\n"
+                },
+                {
+                    "date": 1750100365230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,5 @@\n \n Route::get('/', function () {\n     return view('welcome');\n });\n-Route::get('')\n+Route::get('admin/login',)\n"
+                },
+                {
+                    "date": 1750100370877,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,5 +4,5 @@\n \n Route::get('/', function () {\n     return view('welcome');\n });\n-Route::get('admin/login',)\n+Route::get('admin/login',[]);\n"
+                },
+                {
+                    "date": 1750100377336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n <?php\n \n+use App\\Http\\Controllers\\AdminController;\n use Illuminate\\Support\\Facades\\Route;\n \n Route::get('/', function () {\n     return view('welcome');\n });\n-Route::get('admin/login',[A]);\n+Route::get('admin/login',[AdminController]);\n"
+                },
+                {
+                    "date": 1750100401032,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,5 +5,5 @@\n \n Route::get('/', function () {\n     return view('welcome');\n });\n-Route::get('admin/login',[AdminController::class,'login']);\n+Route::get('admin/login',[AdminController::class,'login'])->name;\n"
+                }
+            ],
+            "date": 1750100347422,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Support\\Facades\\Route;\n\nRoute::get('/', function () {\n    return view('welcome');\n});\nRou\n"
+        }
+    ]
+}

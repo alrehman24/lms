@@ -1,0 +1,46 @@
+{
+    "sourceFile": "app/Http/Middleware/AdminAuthenticate.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1750191225263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750191231188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n      * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n-        if (Auth::guard('admin')->check()) {\n+        if (Auth4::guard('admin')->check()) {\n             return redirect()->route('admin.dashboard');\n            }\n         return $next($request);\n     }\n"
+                },
+                {
+                    "date": 1750191239204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n      * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n-        if (Auth4::guard('admin')->check()) {\n+        if (Auth::guard('admin')->check()) {\n             return redirect()->route('admin.dashboard');\n            }\n         return $next($request);\n     }\n"
+                },
+                {
+                    "date": 1750191246160,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n namespace App\\Http\\Middleware;\n \n use Closure;\n use Illuminate\\Http\\Request;\n+use Illuminate\\Support\\Facades\\Auth;\n use Symfony\\Component\\HttpFoundation\\Response;\n \n class AdminAuthenticate\n {\n@@ -15,9 +16,9 @@\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n         if (Auth::guard('admin')->check()) {\n-            return redirect()->route('admin.dashboard');\n+            return redirect()->route('admin.login');\n            }\n         return $next($request);\n     }\n }\n"
+                },
+                {
+                    "date": 1750192595367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,11 @@\n      * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n-        if (Auth::guard('admin')->check()) {\n+        if (!Auth::guard('admin')->check()) {\n+            // If not logged in, redirect to login\n             return redirect()->route('admin.login');\n-           }\n+        }\n         return $next($request);\n     }\n }\n"
+                },
+                {
+                    "date": 1750585817943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n      * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n-        if (!Auth::guard('admin')->check()) {\n-            // If not logged in, redirect to login\n-            return redirect()->route('admin.login');\n-        }\n-        return $next($request);\n+        // if (!Auth::guard('admin')->check()) {\n+        //     // If not logged in, redirect to login\n+        //     return redirect()->route('admin.login');\n+        // }\n+        // return $next($request);\n     }\n }\n"
+                },
+                {
+                    "date": 1750585828552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n      * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n      */\n     public function handle(Request $request, Closure $next): Response\n     {\n-        if\n+        if()\n         // if (!Auth::guard('admin')->check()) {\n         //     // If not logged in, redirect to login\n         //     return redirect()->route('admin.login');\n         // }\n"
+                },
+                {
+                    "date": 1750585839314,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,29 @@\n+<?php\n+\n+namespace App\\Http\\Middleware;\n+\n+use Closure;\n+use Illuminate\\Http\\Request;\n+use Illuminate\\Support\\Facades\\Auth;\n+use Symfony\\Component\\HttpFoundation\\Response;\n+\n+class AdminAuthenticate\n+{\n+    /**\n+     * Handle an incoming request.\n+     *\n+     * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n+     */\n+    public function handle(Request $request, Closure $next): Response\n+    {\n+        if(!Auth::check())\n+        {\n+            \n+        }\n+        // if (!Auth::guard('admin')->check()) {\n+        //     // If not logged in, redirect to login\n+        //     return redirect()->route('admin.login');\n+        // }\n+        // return $next($request);\n+    }\n+}\n"
+                }
+            ],
+            "date": 1750191225263,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Middleware;\n\nuse Closure;\nuse Illuminate\\Http\\Request;\nuse Symfony\\Component\\HttpFoundation\\Response;\n\nclass AdminAuthenticate\n{\n    /**\n     * Handle an incoming request.\n     *\n     * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next\n     */\n    public function handle(Request $request, Closure $next): Response\n    {\n        if (Auth::guard('admin')->check()) {\n            return redirect()->route('admin.dashboard');\n           }\n        return $next($request);\n    }\n}\n"
+        }
+    ]
+}

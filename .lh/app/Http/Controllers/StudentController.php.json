@@ -1,0 +1,26 @@
+{
+    "sourceFile": "app/Http/Controllers/StudentController.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1750559480574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750559490524,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,6 +6,6 @@\n \n class StudentController extends Controller\n {\n     public function index()\n-    \n+    {}\n }\n"
+                },
+                {
+                    "date": 1750559498534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,13 @@\n+<?php\n+\n+namespace App\\Http\\Controllers;\n+\n+use Illuminate\\Http\\Request;\n+\n+class StudentController extends Controller\n+{\n+    public function index()\n+    {\n+        return\n+    }\n+}\n"
+                }
+            ],
+            "date": 1750559480574,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse Illuminate\\Http\\Request;\n\nclass StudentController extends Controller\n{\n    \n}\n"
+        }
+    ]
+}

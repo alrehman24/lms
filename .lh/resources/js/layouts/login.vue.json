@@ -1,0 +1,42 @@
+{
+    "sourceFile": "resources/js/layouts/login.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1751111831432,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751111842579,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n-<template>\r\n-\r\n-</template>\r\n+<template>\n+\n+</template>\n+<script>\n+</script>\n"
+                },
+                {
+                    "date": 1751111848671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n <template>\n \n </template>\n <script>\n+export\n </script>\n"
+                },
+                {
+                    "date": 1751111854580,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,8 @@\n <template>\n \n </template>\n <script>\n-export\n+export default {\n+\n+}\n </script>\n"
+                },
+                {
+                    "date": 1751111860247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n \n </template>\n <script>\n export default {\n-\n+name:'LoginLayout',\n }\n </script>\n"
+                },
+                {
+                    "date": 1751111868470,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,5 +6,6 @@\n name:'LoginLayout',\n components:{\n     LoginForm,\n }\n+}\n </script>\n"
+                },
+                {
+                    "date": 1751111877938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n </template>\n <script>\n export default {\n     name: 'LoginLayout',\n-    components: {\n-        LoginForm,\n-    }\n+    // components: {\n+    //     LoginForm,\n+    // }\n }\n </script>\n"
+                }
+            ],
+            "date": 1751111831432,
+            "name": "Commit-0",
+            "content": "<template>\r\n\r\n</template>\r\n"
+        }
+    ]
+}

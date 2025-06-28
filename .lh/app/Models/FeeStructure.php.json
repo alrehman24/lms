@@ -1,0 +1,38 @@
+{
+    "sourceFile": "app/Models/FeeStructure.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1750502093835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1750502102775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,11 @@\n \n namespace App\\Models;\n \n use Illuminate\\Database\\Eloquent\\Model;\n+use Illuminate\\Database\\Eloquent\\Relations\\Pivot;\n \n-class FeeStructure extends Model\n+class FeeStructure extends Pivot\n {\n     protected $fillable=[\n         'class_id',\n         'academic_year_id',\n@@ -22,6 +23,6 @@\n         'january',\n         'february',\n         'march',\n     ];\n-    \n+\n }\n"
+                },
+                {
+                    "date": 1750502111920,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,17 @@\n         'january',\n         'february',\n         'march',\n     ];\n-\n+    public function class()\n+    {\n+        return $this->belongsTo(Classes::class);\n+    }\n+    public function academicYear()\n+    {\n+        return $this->belongsTo(AcademicYear::class);\n+    }\n+    public function feeHead()\n+    {\n+        return $this->belongsTo(FeeHead::class);\n+    }\n }\n"
+                },
+                {
+                    "date": 1750502131274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,11 @@\n namespace App\\Models;\n \n use Illuminate\\Database\\Eloquent\\Model;\n use Illuminate\\Database\\Eloquent\\Relations\\Pivot;\n+use App\\Models\\Classes;\n+use App\\Models\\AcademicYear;\n+use App\\Models\\FeeHead;\n \n class FeeStructure extends Pivot\n {\n     protected $fillable=[\n"
+                },
+                {
+                    "date": 1750502173347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n \n namespace App\\Models;\n \n use Illuminate\\Database\\Eloquent\\Model;\n-use Illuminate\\Database\\Eloquent\\Relations\\Pivot;\n use App\\Models\\Classes;\n use App\\Models\\AcademicYear;\n use App\\Models\\FeeHead;\n \n"
+                },
+                {
+                    "date": 1750502268994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n use App\\Models\\Classes;\n use App\\Models\\AcademicYear;\n use App\\Models\\FeeHead;\n \n-class FeeStructure extends Pivot\n+class FeeStructure extends Model\n {\n     protected $fillable=[\n         'class_id',\n         'academic_year_id',\n"
+                }
+            ],
+            "date": 1750502093835,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Models;\n\nuse Illuminate\\Database\\Eloquent\\Model;\n\nclass FeeStructure extends Model\n{\n    protected $fillable=[\n        'class_id',\n        'academic_year_id',\n        'fee_head_id',\n        'april',\n        'may',\n        'june',\n        'july',\n        'august',\n        'september',\n        'october',\n        'november',\n        'december',\n        'january',\n        'february',\n        'march',\n    ];\n    \n}\n"
+        }
+    ]
+}
