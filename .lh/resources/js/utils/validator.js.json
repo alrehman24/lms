@@ -1,0 +1,50 @@
+{
+    "sourceFile": "resources/js/utils/validator.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 8,
+            "patches": [
+                {
+                    "date": 1751197389124,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751197396721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,4 +9,8 @@\n \n export function minLength(value, length) {\n   return value.length >= length ? '' : `Minimum length is ${length}`;\n }\n+\n+export function maxLength(value, length) {\n+  return value.length <= length ? '' : `Maximum length is ${length}`;\n+}\n"
+                },
+                {
+                    "date": 1751197405593,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,4 +13,8 @@\n \n export function maxLength(value, length) {\n   return value.length <= length ? '' : `Maximum length is ${length}`;\n }\n+\n+export function minValue(value, min) {\n+  return value >= min ? '' : `Minimum value is ${min}`;\n+}\n"
+                },
+                {
+                    "date": 1751197421689,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,6 @@\n export function maxLength(value, length) {\n   return value.length <= length ? '' : `Maximum length is ${length}`;\n }\n \n-export function minValue(value, min) {\n-  return value >= min ? '' : `Minimum value is ${min}`;\n-}\n+\n+\n"
+                },
+                {
+                    "date": 1751197431599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,6 +14,8 @@\n export function maxLength(value, length) {\n   return value.length <= length ? '' : `Maximum length is ${length}`;\n }\n \n-\n-\n+export function password(value) {\n+  const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/;\n+  return pattern.test(value) ? '' : 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character';\n+}\n"
+                },
+                {
+                    "date": 1751197447723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,4 +18,8 @@\n export function password(value) {\n   const pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/;\n   return pattern.test(value) ? '' : 'Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character';\n }\n+\n+export function confirmPassword(value, password) {\n+  return value === password ? '' : 'Passwords do not match';\n+}   \n"
+                },
+                {
+                    "date": 1751197458968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,5 +21,22 @@\n }\n \n export function confirmPassword(value, password) {\n   return value === password ? '' : 'Passwords do not match';\n-}   \n+}\n+\n+export function validateForm(formData) {\n+  const errors = {};\n+\n+  if (!formData.email) {\n+    errors.email = required(formData.email);\n+  } else {\n+    errors.email = email(formData.email);\n+  }\n+\n+  if (!formData.password) {\n+    errors.password = required(formData.password);\n+  } else {\n+    errors.password = password(formData.password);\n+  }\n+\n+  if (!formData.confirmPassword) {\n"
+                },
+                {
+                    "date": 1751197470948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,4 +39,12 @@\n     errors.password = password(formData.password);\n   }\n \n   if (!formData.confirmPassword) {\n+    errors.confirmPassword = required(formData.confirmPassword);\n+  } else {\n+    errors.confirmPassword = confirmPassword(formData.confirmPassword, formData.password);\n+  }\n+\n+  return errors;\n+}\n+\n"
+                },
+                {
+                    "date": 1751197556893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,28 +23,6 @@\n export function confirmPassword(value, password) {\n   return value === password ? '' : 'Passwords do not match';\n }\n \n-export function validateForm(formData) {\n-  const errors = {};\n \n-  if (!formData.email) {\n-    errors.email = required(formData.email);\n-  } else {\n-    errors.email = email(formData.email);\n-  }\n \n-  if (!formData.password) {\n-    errors.password = required(formData.password);\n-  } else {\n-    errors.password = password(formData.password);\n-  }\n-\n-  if (!formData.confirmPassword) {\n-    errors.confirmPassword = required(formData.confirmPassword);\n-  } else {\n-    errors.confirmPassword = confirmPassword(formData.confirmPassword, formData.password);\n-  }\n-\n-  return errors;\n-}\n-\n"
+                }
+            ],
+            "date": 1751197389124,
+            "name": "Commit-0",
+            "content": "export function required(value) {\n  return value ? '' : 'This field is required';\n}\n\nexport function email(value) {\n  const pattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;\n  return pattern.test(value) ? '' : 'Invalid email address';\n}\n\nexport function minLength(value, length) {\n  return value.length >= length ? '' : `Minimum length is ${length}`;\n}\n"
+        }
+    ]
+}

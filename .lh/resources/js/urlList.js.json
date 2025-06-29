@@ -1,0 +1,90 @@
+{
+    "sourceFile": "resources/js/urlList.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 18,
+            "patches": [
+                {
+                    "date": 1751193212536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751193223742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,4 @@\n-export \n+export function getUrlList()\n+{\n+    \n+}\n"
+                },
+                {
+                    "date": 1751193294237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n export function getUrlList()\n {\n-    \n+    const\n }\n"
+                },
+                {
+                    "date": 1751193304724,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n export function getUrlList()\n {\n-    const\n+    const baseURL=\n }\n"
+                },
+                {
+                    "date": 1751193312720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+export function getUrlList()\n+{\n+    const baseURL=import.meta.env.VITE_BASE_URL;\n+}\n"
+                },
+                {
+                    "date": 1751193449711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,4 @@\n export function getUrlList()\n {\n     const baseURL=import.meta.env.VITE_BASE_URL;\n }\n-export function getUrlList()\n-{\n-    const baseURL=\n-}\n"
+                },
+                {
+                    "date": 1751193781565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n export function getUrlList()\n {\n-    const baseURL=import.meta.env.VITE_BASE_URL;\n+    const baseURL='';\n }\n"
+                },
+                {
+                    "date": 1751193789345,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,4 @@\n export function getUrlList()\n {\n-    const baseURL='';\n+    const baseURL='http://localhost:8000/api/';\n }\n"
+                },
+                {
+                    "date": 1751193798329,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,4 @@\n+export function getUrlList()\n+{\n+    const baseURL='http://localhost:8000/api/';\n+}\n"
+                },
+                {
+                    "date": 1751193817730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,5 @@\n export function getUrlList()\n {\n     const baseURL='http://localhost:8000/api/';\n+    \n }\n-export function getUrlList()\n-{\n-    const baseURL='http://localhost:8000/api/';\n-}\n"
+                },
+                {
+                    "date": 1751193824839,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n export function getUrlList()\n {\n     const baseURL='http://localhost:8000/api/';\n-    \n+    return{\n+        baseURL,\n+    }\n }\n"
+                },
+                {
+                    "date": 1751193840318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n export function getUrlList()\n {\n-    const baseURL='http://localhost:8000/api/';\n+    const baseURL='http://localhost:8000/';\n     return{\n         baseURL,\n     }\n }\n"
+                },
+                {
+                    "date": 1751193846792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+export function getUrlList()\n+{\n+    const baseURL='http://localhost:8000/';\n+    const \n+    return{\n+        baseURL,\n+    }\n+}\n"
+                },
+                {
+                    "date": 1751193853964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,8 @@\n export function getUrlList()\n {\n     const baseURL='http://localhost:8000/';\n-    const \n+    const baseAPI=baseURL+'api/';\n     return{\n         baseURL,\n     }\n }\n-export function getUrlList()\n-{\n-    const baseURL='http://localhost:8000/';\n-    return{\n-        baseURL,\n-    }\n-}\n"
+                },
+                {
+                    "date": 1751193873309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,8 @@\n+export function getUrlList()\n+{\n+    const baseURL='http://localhost:8000/';\n+    const baseAPIRU=baseURL+'api/';\n+    return{\n+        baseURL,\n+    }\n+}\n"
+                },
+                {
+                    "date": 1751193878896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,8 @@\n export function getUrlList()\n {\n     const baseURL='http://localhost:8000/';\n-    const baseAPIRU=baseURL+'api/';\n+    const baseAPIURL=baseURL+'api/';\n     return{\n         baseURL,\n     }\n }\n-export function getUrlList()\n-{\n-    const baseURL='http://localhost:8000/';\n-    const baseAPI=baseURL+'api/';\n-    return{\n-        baseURL,\n-    }\n-}\n"
+                },
+                {
+                    "date": 1751193889162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,7 @@\n {\n     const baseURL='http://localhost:8000/';\n     const baseAPIURL=baseURL+'api/';\n     return{\n-        baseURL,\n+        baseURL:,\n     }\n }\n"
+                },
+                {
+                    "date": 1751193908401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,6 +3,7 @@\n     const baseURL='http://localhost:8000/';\n     const baseAPIURL=baseURL+'api/';\n     return{\n         baseURL:baseURL,\n+        baseAPIURL:baseAPIURL,\n     }\n }\n"
+                },
+                {
+                    "date": 1751193913804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n     const baseAPIURL=baseURL+'api/';\n     return{\n         baseURL:baseURL,\n         baseAPIURL:baseAPIURL,\n-        \n+        loginURL:baseURL+'login',\n     }\n }\n"
+                }
+            ],
+            "date": 1751193212536,
+            "name": "Commit-0",
+            "content": "export \n"
+        }
+    ]
+}

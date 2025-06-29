@@ -1,0 +1,34 @@
+{
+    "sourceFile": "resources/js/components/BaseInput.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1751198517674,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751199076438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,10 @@\n   <div>\n     <label :for=\"name\">{{ label }}</label>\n     <input\n       :id=\"name\"\n-      v-model=\"modelValue\"\n+     :value=\"modelValue\"\n+  @input=\"$emit('update:modelValue', $event.target.value)\"\n       @input=\"$emit('update:modelValue', $event.target.value)\"\n       :type=\"type\"\n       :name=\"name\"\n     />\n"
+                },
+                {
+                    "date": 1751199087301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n     <label :for=\"name\">{{ label }}</label>\n     <input\n       :id=\"name\"\n      :value=\"modelValue\"\n-  @input=\"$emit('update:modelValue', $event.target.value)\"\n       @input=\"$emit('update:modelValue', $event.target.value)\"\n       :type=\"type\"\n       :name=\"name\"\n     />\n"
+                },
+                {
+                    "date": 1751199461853,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,55 +1,31 @@\n <template>\n-    <div>\n-        <label :for=\"name\">{{ label }}</label>\n-        <input :id=\"name\" :value=\"modelValue\" @input=\"$emit('update:modelValue', $event.target.value)\" :type=\"type\"\n-            :name=\"name\" />\n-        <span class=\"text-danger\" v-if=\"v$ && v$.$error\">\n-            {{ errorMessage }}\n-        </span>\n+  <div>\n+    <label :for=\"name\">{{ label }}</label>\n+    <input\n+      :id=\"name\"\n+      :type=\"type\"\n+      :value=\"modelValue\"\n+      @input=\"$emit('update:modelValue', $event.target.value)\"\n+      class=\"form-control\"\n+    />\n+    <div v-if=\"v$ && v$.$error\" class=\"text-danger\">\n+      <span v-if=\"v$.required?.$invalid\">This field is required.</span>\n+      <span v-if=\"v$.email?.$invalid\">Invalid email format.</span>\n     </div>\n+  </div>\n </template>\n \n <script>\n-import { required, email } from '@vuelidate/validators'\n-import useVuelidate from '@vuelidate/core'\n-\n export default {\n-    name: 'BaseInput',\n-    props: {\n-        modelValue: String,\n-        label: String,\n-        name: String,\n-        type: {\n-            type: String,\n-            default: 'text'\n-        },\n-        rules: {\n-            type: Array,\n-            default: () => []\n-        }\n+  props: {\n+    modelValue: [String, Number],\n+    label: String,\n+    name: String,\n+    type: {\n+      type: String,\n+      default: 'text'\n     },\n-    data() {\n-        return {\n-            internalValue: this.modelValue\n-        }\n-    },\n-    validations() {\n-        return {\n-            internalValue: this.rules.reduce((obj, rule) => {\n-                obj[rule.name] = rule.fn\n-                return obj\n-            }, {})\n-        }\n-    },\n-    computed: {\n-        v$() {\n-            return useVuelidate().value?.internalValue\n-        },\n-        errorMessage() {\n-            const firstErrorKey = Object.keys(this.v$).find(key => this.v$[key].$invalid)\n-            return firstErrorKey === 'required' ? 'Field is required' :\n-                firstErrorKey === 'email' ? 'Email is invalid' : ''\n-        }\n-    }\n+    v$: Object, // validation object passed from parent\n+  },\n }\n </script>\n"
+                },
+                {
+                    "date": 1751199978590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,13 @@\n       :value=\"modelValue\"\n       @input=\"$emit('update:modelValue', $event.target.value)\"\n       class=\"form-control\"\n     />\n-    \n+    <div class=\"input-group-append\">\n+                                <div class=\"input-group-text\">\n+                                    <span class=\"fas fa-lock\"></span>\n+                                </div>\n+                            </div>\n     <div v-if=\"v$ && v$.$error\" class=\"text-danger\">\n       <span v-if=\"v$.required?.$invalid\">This field is required.</span>\n       <span v-if=\"v$.email?.$invalid\">Invalid email format.</span>\n     </div>\n"
+                }
+            ],
+            "date": 1751198517674,
+            "name": "Commit-0",
+            "content": "<template>\n  <div>\n    <label :for=\"name\">{{ label }}</label>\n    <input\n      :id=\"name\"\n      v-model=\"modelValue\"\n      @input=\"$emit('update:modelValue', $event.target.value)\"\n      :type=\"type\"\n      :name=\"name\"\n    />\n    <span class=\"text-danger\" v-if=\"v$ && v$.$error\">\n      {{ errorMessage }}\n    </span>\n  </div>\n</template>\n\n<script>\nimport { required, email } from '@vuelidate/validators'\nimport useVuelidate from '@vuelidate/core'\n\nexport default {\n  name: 'BaseInput',\n  props: {\n    modelValue: String,\n    label: String,\n    name: String,\n    type: {\n      type: String,\n      default: 'text'\n    },\n    rules: {\n      type: Array,\n      default: () => []\n    }\n  },\n  data() {\n    return {\n      internalValue: this.modelValue\n    }\n  },\n  validations() {\n    return {\n      internalValue: this.rules.reduce((obj, rule) => {\n        obj[rule.name] = rule.fn\n        return obj\n      }, {})\n    }\n  },\n  computed: {\n    v$() {\n      return useVuelidate().value?.internalValue\n    },\n    errorMessage() {\n      const firstErrorKey = Object.keys(this.v$).find(key => this.v$[key].$invalid)\n      return firstErrorKey === 'required' ? 'Field is required' :\n             firstErrorKey === 'email' ? 'Email is invalid' : ''\n    }\n  }\n}\n</script>\n"
+        }
+    ]
+}
