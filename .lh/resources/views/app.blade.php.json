@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 1,
+            "activePatchIndex": 2,
             "patches": [
                 {
                     "date": 1750613004947,
@@ -12,6 +12,10 @@
                 {
                     "date": 1751212709800,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,32 @@\n <!DOCTYPE html>\n-<html>\n+<html lang=\"en\">\n+\n <head>\n-    @vite(['resources/css/app.css', 'resources/js/app.js'])\n+    <meta charset=\"UTF-8\">\n+    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n+    <title>Document</title>\n+\n+    <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"{{ asset('front_assets/img/favicon.png') }}\">\n+    <!-- Place favicon.ico in the root directory -->\n+\n+    <!-- CSS here -->\n+    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback\">\n+\n+    <link rel=\"stylesheet\" href=\"admincss/plugins/fontawesome-free/css/all.min.css\">\n+\n+    <link rel=\"stylesheet\" href=\"admincss/plugins/icheck-bootstrap/icheck-bootstrap.min.css\">\n+\n+    <link rel=\"stylesheet\" href=\"admincss/dist/css/adminlte.min2167.css?v=3.2.0\">\n+\n+\n </head>\n+\n <body>\n-    <div id=\"app\"></div>\n+    @vite('resources/css/app.css')\n+    <div id = \"app\"> </div>\n+    @vite('resources/js/app.js')\n </body>\n+\n+\n+\n </html>\n"
+                },
+                {
+                    "date": 1751221383824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,10 @@\n     <link rel=\"shortcut icon\" type=\"image/x-icon\" href=\"{{ asset('front_assets/img/favicon.png') }}\">\n     <!-- Place favicon.ico in the root directory -->\n \n     <!-- CSS here -->\n-    <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback\">\n+    <link rel=\"stylesheet\"\n+        href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&amp;display=fallback\">\n \n     <link rel=\"stylesheet\" href=\"admincss/plugins/fontawesome-free/css/all.min.css\">\n \n     <link rel=\"stylesheet\" href=\"admincss/plugins/icheck-bootstrap/icheck-bootstrap.min.css\">\n"
                 }
             ],
             "date": 1750613004947,

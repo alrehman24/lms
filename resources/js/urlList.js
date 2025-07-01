@@ -6,7 +6,7 @@ export function getUrlList()
         base:base,
         baseAPI:baseAPI,
         home:baseAPI+'home',
-        login:baseAPI+'login',
+        login:baseAPI+'admin/login',
         register:baseAPI+'register',
     }
 }

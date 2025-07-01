@@ -87,7 +87,7 @@ export default {
                   alert('Validation failed');
                 return;
             }
-            alert('Form submitted');
+           // alert('Form submitted');
             const response = await axios.post(getUrlList().login, {
                 email: this.email,
                 password: this.password

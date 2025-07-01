@@ -25,36 +25,41 @@ class AdminController extends Controller
             'email' => 'required|email',
             'password' => 'required|min:6',
         ]);
-
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            if(Auth::user()->role=='admin'){
-                return redirect()->route('admin.dashboard');
-            }else if(Auth::user()->role=='student'){
-                return redirect()->route('student.dashboard');
-            }else{
-                Auth::logout();
-                return redirect()->route('admin.login')->with('error','Unauthorized User');
-            }
+            $token = Auth::user()->createToken('auth_token')->plainTextToken;
+            return response()->json(['token' => $token, 'user' => Auth::user()->toArray()]);
         } else {
-            return redirect()->route('admin.login')->with('error','Invalid Credentials');
+            return response()->json(['message' => 'Invalid credentials'], 401);
         }
+        // if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        //     if(Auth::user()->role=='admin'){
+
+        //         return redirect()->route('admin.dashboard');
+        //     }else if(Auth::user()->role=='student'){
+        //         return redirect()->route('student.dashboard');
+        //     }else{
+        //         Auth::logout();
+        //         return redirect()->route('admin.login')->with('error','Unauthorized User');
+        //     }
+        // } else {
+        //     return redirect()->route('admin.login')->with('error','Invalid Credentials');
+        // }
     }
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('admin.login')->with('success','Logged Out Successfully');
+        return redirect()->route('admin.login')->with('success', 'Logged Out Successfully');
     }
     public function register()
     {
-        $user=new User();
-        $user->name='John Doe';
-        $user->email='admin@dom.com';
-        $user->role='admin';
+        $user = new User();
+        $user->name = 'John Doe';
+        $user->email = 'admin@dom.com';
+        $user->role = 'admin';
 
-        $user->password=Hash::make('adminadmin');
+        $user->password = Hash::make('adminadmin');
         $user->save();
         return redirect()->route('admin.login');
-
     }
     public function form()
     {

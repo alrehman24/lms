@@ -3,11 +3,75 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 16,
             "patches": [
                 {
                     "date": 1750612884748,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1751221558440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,16 @@\n-import { createRouter, createWebHistory } from 'vue-router';\r\n-import Home from '../components/Home.vue';\r\n-import About from '../components/About.vue';\r\n-\r\n-const routes = [\r\n-    { path: '/', name: 'home', component: Home },\r\n-    { path: '/about', name: 'about', component: About },\r\n-];\r\n-\r\n-const router = createRouter({\r\n-    history: createWebHistory(),\r\n-    routes,\r\n-});\r\n-\r\n-export default router;\r\n+import { createRouter, createWebHistory } from 'vue-router';\n+import Home from '../components/Home.vue';\n+import About from '../components/About.vue';\n+import LoginLayout from '../layouts/LoginLayout.vue';\n+\n+const routes = [\n+    { path: '/', name: 'login', component: LoginLayout },\n+    { path: '/about', name: 'about', component: About },\n+];\n+\n+const router = createRouter({\n+    history: createWebHistory(),\n+    routes,\n+});\n+\n+export default router;\n"
+                },
+                {
+                    "date": 1751304037749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,16 @@\n+import { createRouter, createWebHistory } from 'vue-router';\n+import Home from '../components/Home.vue';\n+import About from '../components/About.vue';\n+import LoginLayout from '../layouts/LoginLayout.vue';\n+\n+const routes = [\n+    { path: '/', name: 'login', component: LoginLayout },\n+    { path: '/about', name: 'about', component: About },\n+];\n+\n+const router = createRouter({\n+    history: createWebHistory(),\n+    routes,\n+});\n+\n+export default router;\n"
+                },
+                {
+                    "date": 1751304135771,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,30 +3,14 @@\n import About from '../components/About.vue';\n import LoginLayout from '../layouts/LoginLayout.vue';\n \n const routes = [\n-    { path: '/', name: 'login', component: LoginLayout },\n-    { path: '/about', name: 'about', component: About },\n+    // { path: '/', name: 'login', component: LoginLayout },\n+    // { path: '/about', name: 'about', component: About },\n ];\n \n const router = createRouter({\n     history: createWebHistory(),\n     routes,\n });\n \n export default router;\n-import { createRouter, createWebHistory } from 'vue-router';\n-import Home from '../components/Home.vue';\n-import About from '../components/About.vue';\n-import LoginLayout from '../layouts/LoginLayout.vue';\n-\n-const routes = [\n-    { path: '/', name: 'login', component: LoginLayout },\n-    { path: '/about', name: 'about', component: About },\n-];\n-\n-const router = createRouter({\n-    history: createWebHistory(),\n-    routes,\n-});\n-\n-export default router;\n"
+                },
+                {
+                    "date": 1751304149935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,15 @@\n import About from '../components/About.vue';\n import LoginLayout from '../layouts/LoginLayout.vue';\n \n const routes = [\n+     {\n+    path: '/auth',\n+    component: LoginLayout,\n+    children: [\n+      { path: 'login', name: 'login', component: Login }\n+    ]\n+  },\n     // { path: '/', name: 'login', component: LoginLayout },\n     // { path: '/about', name: 'about', component: About },\n ];\n \n"
+                },
+                {
+                    "date": 1751304159155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n      {\n     path: '/auth',\n     component: LoginLayout,\n     children: [\n-      { path: 'login', name: 'login', component: Login }\n+      { path: 'login', name: 'login', component: LoginLayout }\n     ]\n   },\n     // { path: '/', name: 'login', component: LoginLayout },\n     // { path: '/about', name: 'about', component: About },\n"
+                },
+                {
+                    "date": 1751304175365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n import About from '../components/About.vue';\n import LoginLayout from '../layouts/LoginLayout.vue';\n \n const routes = [\n+    { path: '/', name: 'login', component: LoginLayout },\n      {\n     path: '/auth',\n     component: LoginLayout,\n     children: [\n"
+                },
+                {
+                    "date": 1751304188663,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n const routes = [\n     { path: '/', name: 'login', component: LoginLayout },\n      {\n-    path: '/auth',\n+    path: '/admin',\n     component: LoginLayout,\n     children: [\n       { path: 'login', name: 'login', component: LoginLayout }\n     ]\n"
+                },
+                {
+                    "date": 1751304196820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n const routes = [\n     { path: '/', name: 'login', component: LoginLayout },\n      {\n     path: '/admin',\n-    component: LoginLayout,\n+    component: AdminLayout,\n     children: [\n       { path: 'login', name: 'login', component: LoginLayout }\n     ]\n   },\n"
+                },
+                {
+                    "date": 1751304212811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n      {\n     path: '/admin',\n     component: AdminLayout,\n     children: [\n-      { path: 'login', name: 'login', component: LoginLayout }\n+      { path: 'dashboard', name: 'login', component: LoginLayout }\n     ]\n   },\n     // { path: '/', name: 'login', component: LoginLayout },\n     // { path: '/about', name: 'about', component: About },\n"
+                },
+                {
+                    "date": 1751304219073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n      {\n     path: '/admin',\n     component: AdminLayout,\n     children: [\n-      { path: 'dashboard', name: 'login', component: LoginLayout }\n+      { path: 'dashboard', name: 'admin.dashboard', component: LoginLayout }\n     ]\n   },\n     // { path: '/', name: 'login', component: LoginLayout },\n     // { path: '/about', name: 'about', component: About },\n"
+                },
+                {
+                    "date": 1751304225395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n      {\n     path: '/admin',\n     component: AdminLayout,\n     children: [\n-      { path: 'dashboard', name: 'admin.dashboard', component: LoginLayout }\n+      { path: 'dashboard', name: 'admin.dashboard', component: Dashboard }\n     ]\n   },\n     // { path: '/', name: 'login', component: LoginLayout },\n     // { path: '/about', name: 'about', component: About },\n"
+                },
+                {
+                    "date": 1751305739703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,15 +4,15 @@\n import LoginLayout from '../layouts/LoginLayout.vue';\n \n const routes = [\n     { path: '/', name: 'login', component: LoginLayout },\n-     {\n-    path: '/admin',\n-    component: AdminLayout,\n-    children: [\n-      { path: 'dashboard', name: 'admin.dashboard', component: Dashboard }\n-    ]\n-  },\n+//      {\n+//     path: '/admin',\n+//     component: AdminLayout,\n+//     children: [\n+//       { path: 'dashboard', name: 'admin.dashboard', component: Dashboard }\n+//     ]\n+//   },\n     // { path: '/', name: 'login', component: LoginLayout },\n     // { path: '/about', name: 'about', component: About },\n ];\n \n"
+                },
+                {
+                    "date": 1751305749807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n //       { path: 'dashboard', name: 'admin.dashboard', component: Dashboard }\n //     ]\n //   },\n     // { path: '/', name: 'login', component: LoginLayout },\n-    // { path: '/about', name: 'about', component: About },\n+     { path: '/dashboard', name: 'about', component: About },\n ];\n \n const router = createRouter({\n     history: createWebHistory(),\n"
+                },
+                {
+                    "date": 1751305754971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n //       { path: 'dashboard', name: 'admin.dashboard', component: Dashboard }\n //     ]\n //   },\n     // { path: '/', name: 'login', component: LoginLayout },\n-     { path: '/dashboard', name: 'about', component: About },\n+     { path: '/dashboard', name: 'dashboard', component: Dashboard },\n ];\n \n const router = createRouter({\n     history: createWebHistory(),\n"
+                },
+                {
+                    "date": 1751305762543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n import { createRouter, createWebHistory } from 'vue-router';\n import Home from '../components/Home.vue';\n import About from '../components/About.vue';\n import LoginLayout from '../layouts/LoginLayout.vue';\n+import AdminLayout from '../layouts/AdminLayout.vue';\n+import Dashboard from '../components/Dashboard.vue';\n \n \n const routes = [\n     { path: '/', name: 'login', component: LoginLayout },\n"
+                },
+                {
+                    "date": 1751305774111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import Home from '../components/Home.vue';\n import About from '../components/About.vue';\n import LoginLayout from '../layouts/LoginLayout.vue';\n // import AdminLayout from '../layouts/AdminLayout.vue';\n-import Dashboard from '../components/Dashboard.vue';\n+//import Dashboard from '../components/Dashboard.vue';\n \n \n const routes = [\n     { path: '/', name: 'login', component: LoginLayout },\n"
                 }
             ],
             "date": 1750612884748,
